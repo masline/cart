@@ -32,7 +32,7 @@ SECONDARY_PAYMENT_PROCESSORS = (
 
 # If True, the checkout process is split into separate
 # billing/shipping and payment steps.
-# SHOP_CHECKOUT_STEPS_SPLIT = True
+#SHOP_CHECKOUT_STEPS_SPLIT = True
 
 # If True, the checkout process has a final confirmation step before
 # completion.
@@ -41,7 +41,7 @@ SECONDARY_PAYMENT_PROCESSORS = (
 # Controls the formatting of monetary values accord to the locale
 # module in the python standard library. If an empty string is
 # used, will fall back to the system's locale.
-# SHOP_CURRENCY_LOCALE = ""
+#SHOP_CURRENCY_LOCALE = 'en_US'
 
 # Dotted package path and class name of the function that
 # is called on submit of the billing/shipping checkout step. This
@@ -86,10 +86,11 @@ SECONDARY_PAYMENT_PROCESSORS = (
 PAYPAL_CURRENCY = "USD"
 
 # Business account email. Sandbox emails look like this.
-PAYPAL_BUSINESS = 'seller_XXXXXXXX_biz@example.com' 
+#PAYPAL_BUSINESS = 'seller_XXXXXXXX_biz@example.com' 
+PAYPAL_BUSINESS = 'glenn@masline.com'
 
 # Use this to enable https on return URLs.  This is strongly recommended! (Except for sandbox)
-PAYPAL_RETURN_WITH_HTTPS = True 
+PAYPAL_RETURN_WITH_HTTPS = False 
 
 # Function that returns args for `reverse`. 
 # URL is sent to PayPal as the for returning to a 'complete' landing page.
@@ -99,13 +100,15 @@ PAYPAL_RETURN_URL = lambda cart, uuid, order_form: ('shop_complete', None, None)
 # URL is sent to PayPal as the URL to callback to for PayPal IPN.
 # Set to None if you do not wish to use IPN.
 #PAYPAL_IPN_URL = lambda cart, uuid, order_form: ('my_paypal_ipn', None, {'uuid' : uuid})
-PAYPAL_IPN_URL = None
+#PAYPAL_IPN_URL = None
+PAYPAL_IPN_URL = lambda cart, uuid, order_form: ('paypal.standard.ipn.views.ipn', None, {})
+
 
 # URL the secondary-payment-form is submitted to
 # Dev example
-PAYPAL_SUBMIT_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+#PAYPAL_SUBMIT_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
 # Prod example
-#PAYPAL_SUBMIT_URL = 'https://www.paypal.com/cgi-bin/webscr'
+PAYPAL_SUBMIT_URL = 'https://www.paypal.com/cgi-bin/webscr'
 
 ######################
 # MEZZANINE SETTINGS #
