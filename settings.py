@@ -69,10 +69,7 @@ SECONDARY_PAYMENT_PROCESSORS = (
 
 # Sequence of value/name pairs for types of product options,
 # eg Size, Colour.
-# SHOP_OPTION_TYPE_CHOICES = (
-#     (1, "Size"),
-#     (2, "Colour"),
-# )
+SHOP_OPTION_TYPE_CHOICES = ((1, "Size"),(2, "Color"),(3, "Material"),(4, "Gender"))
 
 # Sequence of indexes from the SHOP_OPTION_TYPE_CHOICES setting that
 # control how the options should be ordered in the admin,
@@ -272,8 +269,8 @@ AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 # various locations.
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #"django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # The numeric mode to set newly-uploaded files to. The value should be
@@ -372,7 +369,7 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.galleries",
-    "mezzanine.twitter",
+    #"mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )
